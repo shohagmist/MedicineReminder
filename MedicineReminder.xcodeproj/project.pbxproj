@@ -13,6 +13,7 @@
 		840EAF86218DD1E5006484A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840EAF85218DD1E5006484A7 /* Assets.xcassets */; };
 		840EAF89218DD1E5006484A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840EAF87218DD1E5006484A7 /* LaunchScreen.storyboard */; };
 		840EAF8C218DD1E5006484A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EAF8B218DD1E5006484A7 /* main.m */; };
+		840EAF94218DE74E006484A7 /* AddMedicineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EAF93218DE74E006484A7 /* AddMedicineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		840EAF88218DD1E5006484A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		840EAF8A218DD1E5006484A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840EAF8B218DD1E5006484A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		840EAF92218DE74E006484A7 /* AddMedicineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMedicineViewController.h; sourceTree = "<group>"; };
+		840EAF93218DE74E006484A7 /* AddMedicineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMedicineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				840EAF87218DD1E5006484A7 /* LaunchScreen.storyboard */,
 				840EAF8A218DD1E5006484A7 /* Info.plist */,
 				840EAF8B218DD1E5006484A7 /* main.m */,
+				840EAF92218DE74E006484A7 /* AddMedicineViewController.h */,
+				840EAF93218DE74E006484A7 /* AddMedicineViewController.m */,
 			);
 			path = MedicineReminder;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840EAF94218DE74E006484A7 /* AddMedicineViewController.m in Sources */,
 				840EAF81218DD1E4006484A7 /* ViewController.m in Sources */,
 				840EAF8C218DD1E5006484A7 /* main.m in Sources */,
 				840EAF7E218DD1E4006484A7 /* AppDelegate.m in Sources */,
