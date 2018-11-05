@@ -37,4 +37,28 @@
 - (IBAction)cancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)medTypeRegularAction:(UIButton *)sender {
+    
+    if(_isHourlySelected == YES)
+    {
+        _medTypeRegular.backgroundColor = UIColor.whiteColor;
+        _medTypeHourly.backgroundColor = UIColor.lightGrayColor;
+        _isHourlySelected = NO;
+    }
+}
+
+- (IBAction)medTypeHourlyAction:(UIButton *)sender {
+    
+    //UIColor *btnColor = _medTypeHourly.backgroundColor;
+    
+    if(_isHourlySelected == NO)
+    {
+        _medTypeHourly.backgroundColor = UIColor.whiteColor;
+        _medTypeRegular.backgroundColor = UIColor.lightGrayColor;
+        _isHourlySelected = YES;
+    }
+}
+- (IBAction)medTimeAction:(UIButton *)sender {
+    
+}
 @end

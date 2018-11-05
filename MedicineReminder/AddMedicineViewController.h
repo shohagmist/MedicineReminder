@@ -10,5 +10,16 @@
 
 @interface AddMedicineViewController : UIViewController
 - (IBAction)cancelButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *medTypeRegular;
+@property (strong, nonatomic) IBOutlet UIButton *medTypeHourly;
+- (IBAction)medTypeRegularAction:(UIButton *)sender;
+- (IBAction)medTypeHourlyAction:(UIButton *)sender;
+
+@property BOOL isHourlySelected;
+@property (strong, nonatomic) IBOutlet UIButton *morningTime;
+@property (strong, nonatomic) IBOutlet UIButton *noonTime;
+@property (strong, nonatomic) IBOutlet UIButton *nightTime;
+- (IBAction)medTimeAction:(UIButton *)sender;
+
 
 @end
