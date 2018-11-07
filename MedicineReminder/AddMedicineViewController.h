@@ -9,13 +9,35 @@
 #import <UIKit/UIKit.h>
 
 @interface AddMedicineViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *medicineName;
+
+@property (strong, nonatomic) IBOutlet UITextField *quantityField;
+
+
+- (IBAction)saveButton:(id)sender;
+
 - (IBAction)cancelButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *medTypeRegular;
 @property (strong, nonatomic) IBOutlet UIButton *medTypeHourly;
+@property (strong, nonatomic) IBOutlet UIButton *beforeEating;
+@property (strong, nonatomic) IBOutlet UIButton *afterEating;
+@property (strong, nonatomic) IBOutlet UILabel *everyLabel;
+@property (strong, nonatomic) IBOutlet UITextField *hourInputBox;
+@property (strong, nonatomic) IBOutlet UILabel *hourLabel;
+
+
+
 - (IBAction)medTypeRegularAction:(UIButton *)sender;
 - (IBAction)medTypeHourlyAction:(UIButton *)sender;
+- (IBAction)beforeAfterEating:(UIButton *)sender;
 
 @property BOOL isHourlySelected;
+@property BOOL isMorningSelected;
+@property BOOL isNoonSelected;
+@property BOOL isNightSelected;
+@property BOOL isBeforeEatingSelected;
+
+
 @property (strong, nonatomic) IBOutlet UIButton *morningTime;
 @property (strong, nonatomic) IBOutlet UIButton *noonTime;
 @property (strong, nonatomic) IBOutlet UIButton *nightTime;

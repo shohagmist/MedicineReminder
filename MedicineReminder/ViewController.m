@@ -17,6 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences setBool:YES forKey:@"score"];
+    //[preferences ]
+    [preferences synchronize];
+    
+    /*
+    NSArray *myArray = @[
+                        @{@"name" : @"Test", @"time" : @"Null"}
+                        ];
+    _myMutableArray = [NSMutableArray arrayWithArray: myArray];
+     */
+    NSLog(@"%@", _myMutableArray);
 }
 
 
