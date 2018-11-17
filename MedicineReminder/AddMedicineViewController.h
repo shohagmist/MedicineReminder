@@ -7,8 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <UserNotifications/UserNotifications.h>
 
-@interface AddMedicineViewController : UIViewController
+@class ViewController;
+
+@protocol TargetViewDelegate <NSObject>
+- (void) didUpdateData;
+@end
+
+
+@interface AddMedicineViewController : UIViewController {
+    __unsafe_unretained id tvcdelegate;
+    BOOL hasAccess;
+}
+
+@property (nonatomic, assign) id <TargetViewDelegate> tvcdelegate;
+
+@property (nonatomic, strong) ViewController *viewController;
+
 @property (strong, nonatomic) IBOutlet UITextField *medicineName;
 
 @property (strong, nonatomic) IBOutlet UITextField *quantityField;

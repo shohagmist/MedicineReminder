@@ -14,6 +14,9 @@
 		840EAF89218DD1E5006484A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840EAF87218DD1E5006484A7 /* LaunchScreen.storyboard */; };
 		840EAF8C218DD1E5006484A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EAF8B218DD1E5006484A7 /* main.m */; };
 		840EAF94218DE74E006484A7 /* AddMedicineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EAF93218DE74E006484A7 /* AddMedicineViewController.m */; };
+		8420D54C21A0522100B8B515 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8420D54B21A0522100B8B515 /* UserNotifications.framework */; };
+		848ABEE8219C578B009DFD1D /* MyCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848ABEE5219C578B009DFD1D /* MyCustomCell.xib */; };
+		848ABEE9219C578B009DFD1D /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 848ABEE7219C578B009DFD1D /* MyTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,10 @@
 		840EAF8B218DD1E5006484A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		840EAF92218DE74E006484A7 /* AddMedicineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMedicineViewController.h; sourceTree = "<group>"; };
 		840EAF93218DE74E006484A7 /* AddMedicineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMedicineViewController.m; sourceTree = "<group>"; };
+		8420D54B21A0522100B8B515 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		848ABEE5219C578B009DFD1D /* MyCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCustomCell.xib; sourceTree = "<group>"; };
+		848ABEE6219C578B009DFD1D /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		848ABEE7219C578B009DFD1D /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8420D54C21A0522100B8B515 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,7 @@
 			children = (
 				840EAF7B218DD1E4006484A7 /* MedicineReminder */,
 				840EAF7A218DD1E4006484A7 /* Products */,
+				8420D54A21A0522100B8B515 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +70,9 @@
 		840EAF7B218DD1E4006484A7 /* MedicineReminder */ = {
 			isa = PBXGroup;
 			children = (
+				848ABEE5219C578B009DFD1D /* MyCustomCell.xib */,
+				848ABEE6219C578B009DFD1D /* MyTableViewCell.h */,
+				848ABEE7219C578B009DFD1D /* MyTableViewCell.m */,
 				840EAF7C218DD1E4006484A7 /* AppDelegate.h */,
 				840EAF7D218DD1E4006484A7 /* AppDelegate.m */,
 				840EAF7F218DD1E4006484A7 /* ViewController.h */,
@@ -74,6 +86,14 @@
 				840EAF93218DE74E006484A7 /* AddMedicineViewController.m */,
 			);
 			path = MedicineReminder;
+			sourceTree = "<group>";
+		};
+		8420D54A21A0522100B8B515 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8420D54B21A0522100B8B515 /* UserNotifications.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +155,7 @@
 			files = (
 				840EAF89218DD1E5006484A7 /* LaunchScreen.storyboard in Resources */,
 				840EAF86218DD1E5006484A7 /* Assets.xcassets in Resources */,
+				848ABEE8219C578B009DFD1D /* MyCustomCell.xib in Resources */,
 				840EAF84218DD1E4006484A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +171,7 @@
 				840EAF81218DD1E4006484A7 /* ViewController.m in Sources */,
 				840EAF8C218DD1E5006484A7 /* main.m in Sources */,
 				840EAF7E218DD1E4006484A7 /* AppDelegate.m in Sources */,
+				848ABEE9219C578B009DFD1D /* MyTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,8 @@
 
 @implementation AddMedicineViewController
 
+@synthesize tvcdelegate; //Warning of delegate
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -38,9 +40,64 @@
 
 - (IBAction)saveButton:(id)sender {
     
-    ViewController *myViewController = [[ViewController alloc]init];
+    if(_viewController.myMutableArray == nil)
+    {
+        if(!_isHourlySelected)
+        {
+            NSMutableArray *temp = [NSMutableArray arrayWithObject:
+                                    @{@"name" : _medicineName.text,
+                                      @"isRegular" : _isHourlySelected ? @"0" : @"1",
+                                      @"quantity" : _quantityField.text,
+                                      @"morning" : _isMorningSelected ? @"1" : @"0",
+                                      @"noon" : _isNoonSelected ? @"1" : @"0",
+                                      @"night" : _isNightSelected ? @"1" : @"0",
+                                      @"beforeEating" : _isBeforeEatingSelected ? @"1" : @"0"
+                                      }];
+            _viewController.myMutableArray = temp;
+        }
+        else
+        {
+            NSMutableArray *temp = [NSMutableArray arrayWithObject:
+                                    @{@"name" : _medicineName.text,
+                                      @"isRegular" : _isHourlySelected ? @"0" : @"1",
+                                      @"quantity" : _quantityField.text,
+                                      @"beforeEating" : _isBeforeEatingSelected ? @"1" : @"0",
+                                      @"hour" : _hourInputBox.text
+                                      }];
+            _viewController.myMutableArray = temp;
+        }
+    }
+    else
+    {
+        if(!_isHourlySelected)
+        {
+            [_viewController.myMutableArray addObject: @{@"name" : _medicineName.text,
+                           @"isRegular" : _isHourlySelected ? @"0" : @"1",
+                           @"quantity" : _quantityField.text,
+                           @"morning" : _isMorningSelected ? @"1" : @"0",
+                           @"noon" : _isNoonSelected ? @"1" : @"0",
+                           @"night" : _isNightSelected ? @"1" : @"0",
+                           @"beforeEating" : _isBeforeEatingSelected ? @"1" : @"0"
+                           }];
+        }
+        else
+        {
+            [_viewController.myMutableArray addObject:
+                        @{@"name" : _medicineName.text,
+                          @"isRegular" : _isHourlySelected ? @"0" : @"1",
+                          @"quantity" : _quantityField.text,
+                          @"beforeEating" : _isBeforeEatingSelected ? @"1" : @"0",
+                          @"hour" : _hourInputBox.text
+                          }];
+
+        }
+    }
+    NSLog(@"In Medicine View : %lu",(unsigned long)[_viewController.myMutableArray count]);
+
     
-    [myViewController.myMutableArray insertObject:@{@"name": @"Napa", @"time": @"8:00"} atIndex:myViewController.myMutableArray.count];
+    [self.tvcdelegate didUpdateData]; //Fire the delegate before dismissing
+    
+    [self fireNotification];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -154,4 +211,46 @@
     }
     
 }
+
+- (void) fireNotification
+{
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];
+    
+    content.title = @"Medicine Reminder";
+    content.subtitle = @"Your Health Partner";
+    content.body = [@"You will be reminded about " stringByAppendingString:_medicineName.text];
+    content.sound = [UNNotificationSound defaultSound];
+    
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"MedicineReminder" content:content trigger:trigger];
+    [center addNotificationRequest:request withCompletionHandler:nil];
+}
+
+- (void) fireNotificationAtSpecificTimeDaily
+{
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:20];
+    NSDateComponents *triggerDate = [[NSCalendar currentCalendar]
+                                     components: NSCalendarUnitHour + NSCalendarUnitMinute +
+                                     NSCalendarUnitSecond fromDate:date];
+    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:YES];
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];
+    
+    content.title = @"Medicine Reminder";
+    content.subtitle = @"Your Health Partner";
+    content.body = [@"It is time for " stringByAppendingString:_medicineName.text];
+    content.sound = [UNNotificationSound defaultSound];
+    
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"MedicineReminder" content:content trigger:trigger];
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Something went wrong: %@",error);
+        }
+    }];
+}
+
 @end

@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <UserNotifications/UserNotifications.h>
+#import "AddMedicineViewController.h"
+#import "MyTableViewCell.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <TargetViewDelegate>
 
 @property NSMutableArray *myMutableArray;
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 
 @end
